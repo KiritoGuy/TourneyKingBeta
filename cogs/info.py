@@ -26,7 +26,7 @@ def format_commit(commit: pygit2.Commit) -> str:
     return f'[`{short_sha2}`](https://github.com/QuantumGamerLive/SquidGame/commit/{commit.hex}) {short} ({offset})'
 
 
-def get_commits(count: int = 2):
+def get_commits(count: int = 3):
     # CREDITS: https://github.com/Rapptz/RoboDanny
     repo = pygit2.Repository('.git')
     commits = list(itertools.islice(repo.walk(repo.head.target, pygit2.GIT_SORT_TOPOLOGICAL), count))
@@ -100,11 +100,16 @@ Other links:
         embed = discord.Embed(
             title="Squid Game Bot Credits",
             description="""
-**Owner:** [`Kirito Guy#9521`](https://discord.com/users/753247226880589982)
-**took help from:** Nirlep_5252_#9798 and Blue.#1270
-**Contributor(s):** Currently no one :(
+**Owner:** [Kirito Guy#9521](https://discord.com/users/753247226880589982)
 
-**Github:** https://github.com/QuantumGamerLive/SquidGame
+**took help from:** 
+Nirlep_5252_#9798 and Blue.#1270
+
+**Contributor(s):**
+Currently no one :(
+
+**Github:**
+https://github.com/QuantumGamerLive/SquidGame
             """,
             color=discord.Color.blurple()
         ).set_author(name=self.bot.user.name, icon_url=self.bot.user.display_avatar.url
