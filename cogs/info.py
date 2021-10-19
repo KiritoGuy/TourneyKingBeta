@@ -46,10 +46,10 @@ class Info(commands.Cog):
     @slash_command(name="invite", help="Invite me to your server uwu")
     async def invite(self, ctx: Union[commands.Context, InteractionContext]):
         await ctx.reply(embed=discord.Embed(
-            title="🔗 Click me to invite!",
+            title="🔗 Click here to invite Squid Game Bot!",
             description="""
-Other links:
-
+links:
+- [Invite](https://discord.com/oauth2/authorize?client_id=897715038587068456&permissions=8&scope=bot%20applications.commands)
 - [Support Server](https://discord.gg/4URvnKHNK2)
 - [Github](https://github.com/QuantumGamerLive/SquidGame)
                     """,
@@ -57,12 +57,12 @@ Other links:
             color=discord.Color.blurple()
         ).set_footer(text="Thank you very much! 💖", icon_url=self.bot.get_user(753247226880589982).display_avatar.url))
 
-    @commands.command(name="bot-info", help="Get some info about me!")
-    @slash_command(name="bot-info", help="Get some info about me!")
+    @commands.command(name="botinfo", help="Get some info about me!")
+    @slash_command(name="botinfo", help="Get some info about me!")
     async def botinfo(self, ctx: Union[commands.Context, InteractionContext]):
         embed = discord.Embed(
             title=f"{self.bot.config.emojis.yes} Info about me!",
-            description="Modern modmail for modern Discord servers.",
+            description="A Discord Bot Which Is Based On A Famous Netflix Show Called Squid Game",
             color=discord.Color.blurple(),
             timestamp=datetime.datetime.utcnow()
         ).add_field(
