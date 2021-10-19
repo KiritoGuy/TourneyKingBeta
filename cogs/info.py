@@ -26,7 +26,7 @@ def format_commit(commit: pygit2.Commit) -> str:
     return f'[`{short_sha2}`](https://github.com/QuantumGamerLive/SquidGame/commit/{commit.hex}) {short} ({offset})'
 
 
-def get_commits(count: int = 3):
+def get_commits(count: int = 2):
     # CREDITS: https://github.com/Rapptz/RoboDanny
     repo = pygit2.Repository('.git')
     commits = list(itertools.islice(repo.walk(repo.head.target, pygit2.GIT_SORT_TOPOLOGICAL), count))
@@ -60,58 +60,30 @@ Other links:
     @commands.command(name="bot-info", help="Get some info about me!")
     @slash_command(name="bot-info", help="Get some info about me!")
     async def botinfo(self, ctx: Union[commands.Context, InteractionContext]):
-        msg = await ctx.reply(embed=discord.Embed(title=f"Loading... {self.bot.config.emojis.loading}"))
         embed = discord.Embed(
-            title="Information About Me!",
-            description="I am a simple, multipurpose Discord bot, built to make ur Discord life easier!",
-            color=discord.Color.blurple()
-        ).set_thumbnail(url=self.client.user.display_avatar.url)
-        embed.add_field(
-            name="Stats",
+            title=f"{self.bot.config.emojis.yes} Info about me!",
+            description="Modern modmail for modern Discord servers.",
+            color=discord.Color.blurple(),
+            timestamp=datetime.datetime.utcnow()
+        ).add_field(
+            name="Stats:",
             value=f"""
-```yaml
-Servers: {len(self.client.guilds)}
-Users: {len(set(self.client.get_all_members()))}
-Total Commands: {len(self.client.commands)}
-Uptime: {str(datetime.timedelta(seconds=int(round(time.time()-start_time))))}
-Version: alpha
-```
+**Servers:** {len(self.bot.guilds)}
+**Users:** {len(self.bot.users)}
+**Commands:** {len(self.bot.commands)}
             """,
-            inline=False
-        )
-        async with self.client.session.get("https://statcord.com/logan/stats/751100444188737617") as r:
-            ah_yes = await r.json()
-        embed.add_field(
-            name="Statcord Stats",
+            inline=True
+        ).add_field(
+            name="Links:",
             value=f"""
-```yaml
-Commands Ran Today: {ah_yes['data'][::-1][0]['commands']}
-Most Used Command: {ah_yes['data'][::-1][0]['popular'][0]['name']} - {ah_yes['data'][::-1][0]['popular'][0]['count']} uses
-Memory Usage: {'%.1f' % float(int(ah_yes['data'][::-1][0]['memactive'])/1000000000)} GB / {'%.1f' % float(int(psutil.virtual_memory().total)/1000000000)} GB
-Memory Load: {ah_yes['data'][::-1][0]['memload']}%
-CPU Load: {ah_yes['data'][::-1][0]['cpuload']}%
-```
-            """,
-            inline=False
-        )
-        embed.add_field(
-            name="Links",
-            value=f"""
-- [Dashboard]({WEBSITE_LINK})
-- [Support Server]({SUPPORT_SERVER_LINK})
-- [Invite SquidGame Bot]({INVITE_BOT_LINK})
-- [Vote SquidGame Bot]({WEBSITE_LINK}/vote)
+- [Support Server](https://discord.gg/4URvnKHNK2)
 - [Github](https://github.com/QuantumGamerLive/SquidGame)
+- [Invite](https://discordapp.com/oauth2/authorize?client_id={self.bot.user.id}&permissions=8&scope=bot%20applications.commands)
             """,
             inline=True
-        )
-        embed.add_field(
-            name="Owner Info",
-            value="""
-Made by: **[Kirito Guy#9521](https://discord.com/users/753247226880589982)**
-            """,
-            inline=True
-        )
+        ).set_footer(text=self.bot.user.name, icon_url=self.bot.user.display_avatar.url
+        ).set_author(name=self.bot.user.name, icon_url=self.bot.user.display_avatar.url
+        ).set_thumbnail(url=self.bot.user.display_avatar.url)
         try:
             embed.add_field(
                 name="Latest Commits:",
@@ -120,7 +92,7 @@ Made by: **[Kirito Guy#9521](https://discord.com/users/753247226880589982)**
             )
         except Exception:
             pass
-        await msg.edit(embed=embed)
+        await ctx.reply(embed=embed)
 
     @commands.command(name="credits", help="Credits to our contributors and helpers!")
     @slash_command(name="credits", help="Credits to our contributors and helpers!")
