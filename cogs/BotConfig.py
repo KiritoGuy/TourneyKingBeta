@@ -5,7 +5,6 @@ from handler import slash_command, user_command, InteractionContext
 from handler import SlashCommandOption as Option
 from handler import SlashCommandChoice as Choice
 from cogs.error_handler
-from utils.exceptions import GuildOnlyPls
 from utils.bot import SquidGame
 
 
