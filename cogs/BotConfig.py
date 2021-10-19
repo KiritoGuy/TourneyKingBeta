@@ -73,7 +73,7 @@ class BotConfig(commands.Cog, name="Bot Configuration"):
             return await ctx.reply(f"{self.bot.config.emojis.no} You cannot remove the last prefix.\nPlease add another one and then remove this one.")
         prefixes.remove(prefix)
         await self.bot.mongo.set_guild_data(ctx.guild.id, prefixes=prefixes)
-        await ctx.reply(f"{self.bot.config.emojis.yes} Removed `{prefix}` from your prefixes.")
+        await ctx.reply(f"{self.bot.config.emojis.yes} Removed `{prefix}` from your prefixes list.")
 
 
 def setup(bot: SquidGame):
