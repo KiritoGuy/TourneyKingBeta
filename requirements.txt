@@ -1,0 +1,12 @@
+git+https://github.com/Nirlep5252/discord.py
+git+https://github.com/Gorialis/jishaku@master
+python-dotenv
+pymongo
+motor
+asyncio
+dnspython
+humanfriendly
+pygit2
+hikari
+uvloop
+aiohttp_cors
