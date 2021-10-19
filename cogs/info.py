@@ -60,7 +60,7 @@ Other links:
     @commands.command(name="bot-info", help="Get some info about me!")
     @slash_command(name="bot-info", help="Get some info about me!")
     async def botinfo(self, ctx: Union[commands.Context, InteractionContext]):
-        msg = await ctx.reply(embed=discord.Embed(title=f"Loading... {EMOJIS['loading']}"))
+        msg = await ctx.reply(embed=discord.Embed(title=f"Loading... {self.bot.config.emojis.loading}"))
         embed = discord.Embed(
             title="Information About Me!",
             description="I am a simple, multipurpose Discord bot, built to make ur Discord life easier!",
