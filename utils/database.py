@@ -1,6 +1,5 @@
 import discord
 import motor.motor_asyncio as motor
-from utils.exceptions import NotSetup, UserAlreadyInAModmailThread
 from typing import Optional, List
 
 
