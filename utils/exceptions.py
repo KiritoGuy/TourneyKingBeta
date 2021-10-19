@@ -2,6 +2,8 @@ import discord
 from typing import Optional, Union
 from discord.ext.commands import CommandError
 
+class NotSetup(CommandError):
+    pass
 
 class DMsDisabled(CommandError):
     def __init__(self, user: discord.Member):
