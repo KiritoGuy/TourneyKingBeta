@@ -64,7 +64,7 @@ Other links:
         embed = discord.Embed(
             title="Information About Me!",
             description="I am a simple, multipurpose Discord bot, built to make ur Discord life easier!",
-            color=MAIN_COLOR
+            color=discord.Color.blurple()
         ).set_thumbnail(url=self.client.user.display_avatar.url)
         embed.add_field(
             name="Stats",
