@@ -9,6 +9,11 @@ from config import Config
 from utils.database import Database
 from handler import InteractionClient
 
+# totally based on nirlep's epicbot :(
+# I am dumb I cant do stuff by my self
+# dont only appreciate me
+# also appreciate Nirlep and Blue.
+# if you don't I will eat you up :)
 
 class SquidGame(commands.AutoShardedBot):
     def __init__(self):
