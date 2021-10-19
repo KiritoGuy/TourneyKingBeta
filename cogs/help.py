@@ -7,9 +7,9 @@ from typing import Union
 
 async def get_bot_help(bot: SquidGame) -> discord.Embed:
     embed = discord.Embed(
-        description="Here are all my commands:",
+        description="Join the World of Squid Game\nHere are the listed commands available:",
         color=discord.Color.blurple()
-    ).set_author(icon_url=bot.user.display_avatar.url, name="MailHook Help")
+    ).set_author(icon_url=bot.user.display_avatar.url, name="Welcome To Squid Game.")
     for cog_name, cog in bot.cogs.items():
         if len(cog.get_commands()) > 0 and cog.qualified_name not in ["Jishaku", "Help", "Devs"]:
             embed.add_field(
