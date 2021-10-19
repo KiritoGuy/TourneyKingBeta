@@ -7,9 +7,9 @@ from typing import Union
 
 async def get_bot_help(bot: SquidGame) -> discord.Embed:
     embed = discord.Embed(
-        description="Hey There! Here are all my commands:",
-        color=discord.Color.red()
-    ).set_author(icon_url=bot.user.display_avatar.url, name="Squid Game Help")
+        description="Here are all my commands:",
+        color=discord.Color.blurple()
+    ).set_author(icon_url=bot.user.display_avatar.url, name="MailHook Help")
     for cog_name, cog in bot.cogs.items():
         if len(cog.get_commands()) > 0 and cog.qualified_name not in ["Jishaku", "Help", "Devs"]:
             embed.add_field(
@@ -19,7 +19,7 @@ async def get_bot_help(bot: SquidGame) -> discord.Embed:
             )
     return embed.add_field(
         name="‎",
-        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/TeSHENet9M) | [Dashboard](https://)",
+        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/4URvnKHNK2) | [GitHub](https://github.com/QuantumGamerLive/SquidGame)",
         inline=False
     ).set_thumbnail(url=bot.user.display_avatar.url)
 
@@ -31,7 +31,7 @@ async def get_cog_help(bot: SquidGame, cog: commands.Cog) -> discord.Embed:
         color=discord.Color.blurple()
     ).add_field(
         name="‎",
-        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/TeSHENet9M) | [Dashboard](https://)",
+        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/4URvnKHNK2) | [GitHub](https://github.com/QuantumGamerLive/SquidGame)",
         inline=False
     )
 
@@ -43,7 +43,7 @@ async def get_command_help(bot, c: commands.Command) -> discord.Embed:
         color=discord.Color.blurple()
     ).add_field(name="Usage:", value=f"```/{c.qualified_name}{' ' + c.signature if c.signature else ''}```").add_field(
         name="‎",
-        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/TeSHENet9M) | [Dashboard](https://)",
+        value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/4URvnKHNK2) | [GitHub](https://github.com/QuantumGamerLive/SquidGame)",
         inline=False
     )
 
