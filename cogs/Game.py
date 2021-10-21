@@ -21,7 +21,7 @@ class Game(commands.Cog, name="play the game of death"):
         await sus.add_reaction(self.react_emoji)
         new_msg = await ctx.channel.fetch_message(sus.id)
         users = await new_msg.reactions[0].users().flatten()
-        users.pop(users.index(self.client.user))
+        users.pop(users.index(self.bot.user))
         for _ in range(10):
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", check = lambda r, u: str(u.emoji) == '✋', timeout=120)
