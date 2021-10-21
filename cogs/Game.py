@@ -1,5 +1,5 @@
 import discord
-from handler import InteractionContext
+from handler import InteractionContext, slash_command
 from typing import Union
 from utils.bot import SquidGame
 from discord.ext import commands
