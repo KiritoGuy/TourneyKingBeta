@@ -24,7 +24,7 @@ class Game(commands.Cog, name="play the game of death"):
         users.pop(users.index(self.bot.user))
         for _ in range(10):
             try:
-                reaction, user = await self.bot.wait_for("reaction_add", check = lambda r, u: str(u.emoji) == '✋', timeout=120)
+                reaction, user = await self.bot.wait_for("reaction_add", check = lambda r, u: str(r.emoji) == '✋', timeout=120)
                 users.append(user)
             except asyncio.TimeoutError:
                 return await ctx.send("no one reacted in time")
