@@ -19,7 +19,7 @@ class Game(commands.Cog, name="play the game of death"):
         await asyncio.sleep(5)
         sus = await msg.edit(embed = discord.Embed(title="Room Created", description=f"The Room for Squid Game has been Created! Now, Click on `{self.react_emoji}` to Join The Room."))
         await sus.add_reaction(self.react_emoji)
-        new_msg = await channel.fetch_message(sus.id)
+        new_msg = await ctx.channel.fetch_message(sus.id)
         users = await new_msg.reactions[0].users().flatten()
         users.pop(users.index(self.client.user))
         for _ in range(10):
