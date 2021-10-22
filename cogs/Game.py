@@ -17,9 +17,9 @@ class Game(commands.Cog, name="Game"):
     async def startgame(self, ctx: Union[commands.Context, InteractionContext]):
         msg = await ctx.send(embed=discord.Embed(title="Starting A New Game", description="Welcome To Squid Game. Creating a New Game...", color=discord.Color.red()).set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeXK3jXSdWsAMjTGuczb7dUhAsMnnnmXYnLw&usqp=CAU"))
         await asyncio.sleep(5)
-        sus = await msg.edit(embed = discord.Embed(title="Room Created", description=f"The Room for Squid Game has been Created! Now, Click on `{self.react_emoji}` to Join The Room."))
-        await sus.add_reaction(self.react_emoji)
-        new_msg = await ctx.channel.fetch_message(sus.id)
+        await msg.edit(embed = discord.Embed(title="Room Created", description=f"The Room for Squid Game has been Created! Now, Click on `{self.react_emoji}` to Join The Room."))
+        await msg.add_reaction(self.react_emoji)
+        new_msg = await ctx.channel.fetch_message(msg.id)
         users = await new_msg.reactions[0].users().flatten()
         users.pop(users.index(self.bot.user))
         for _ in range(1):
