@@ -12,7 +12,7 @@ async def get_bot_help(bot: SquidGame) -> discord.Embed:
                 title=f"{cog_name.title()} Category",
                 description="**Here are all the commands:**\n\n" + "\n".join([f"<:cmd_arrow:895598689463205938> `{command.qualified_name}` • {command.help}" for command in cog.get_commands()]),
                 color=discord.Color.red()
-            ).set_thumbnail(url=bot.user.display_avatar.ur)
+            ).set_thumbnail(url=bot.user.display_avatar.url)
 
     return embed.add_field(
         name="Links:",
