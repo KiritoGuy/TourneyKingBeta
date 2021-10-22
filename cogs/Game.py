@@ -29,7 +29,7 @@ class Game(commands.Cog, name="Game"):
             except asyncio.TimeoutError:
                 return await ctx.send("no one reacted in time")
         overwrites = {user: discord.PermissionOverwrite(read_messages=True, send_messages=True) for user in users}
-        overwrites[guild.default_role] = discord.PermissionOverwrite(read_messages=False, send_messages=False)
+        overwrites[ctx.guild.default_role] = discord.PermissionOverwrite(read_messages=False, send_messages=False)
         chnl = await ctx.guild.create_text_channel(f"Squid-Game", overwrites=overwrites)
 
 
