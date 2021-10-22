@@ -14,7 +14,7 @@ async def get_bot_help(bot: SquidGame) -> discord.Embed:
         if len(cog.get_commands()) > 0 and cog.qualified_name not in ["Jishaku", "Help", "Devs"]:
             embed.add_field(
                 name=cog.qualified_name,
-                value='\n'.join(['`' + command.qualified_name + f'` - {command.help}' for command in cog.get_commands()]),
+                value='\n'.join(['`' + '<:cmd_arrow:895598689463205938>' + 'command.qualified_name + f'` - {command.help}' for command in cog.get_commands()]),
                 inline=False
             )
     return embed.add_field(
