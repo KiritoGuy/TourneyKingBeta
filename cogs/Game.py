@@ -31,6 +31,15 @@ class Game(commands.Cog, name="Game"):
         overwrites = {user: discord.PermissionOverwrite(read_messages=True, send_messages=True) for user in users}
         overwrites[ctx.guild.default_role] = discord.PermissionOverwrite(read_messages=False, send_messages=False)
         chnl = await ctx.guild.create_text_channel(f"Squid-Game", overwrites=overwrites)
+        await ctx.send(f"**10/10** has joined. Room has been created! Move to <#{chnl.id}>.")
+        introduction_embed = discord.Embed(description="Welcome to Squid Game."color=0xff2f00)
+        introduction_embed.set_author(name="Squid Game")
+        introduction_embed.add_field(name="Info:", value="1) this is the game of death. The one who lose he/she will die and the won who wins gets all the prize money.", inline=False)
+        introduction_embed.add_field(name="-", value="2) if any cheating was seen then the player get instantaneous elimination.", inline=True)
+        introduction_embed.add_field(name="-", value="any player who don't want to play can click on "🔚" to exit the game. ", inline=True)
+        introduction_embed.add_field(name="-", value="The winner get **1000 coins** as a prize money", inline=True)
+        introduction_embed.set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzJjuDzamSLOP9KVcBSfLf-gQ0dHm8iGdgg&usqp=CAU")
+        await ctx.chnl.send(embed=introduction_embed)
 
 
 
