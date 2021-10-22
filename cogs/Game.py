@@ -7,7 +7,7 @@ import asyncio
 import random
 
 
-class Game(commands.Cog, name="play the game of death"):
+class Game(commands.Cog, name="Game"):
     def __init__(self, bot: SquidGame):
         self.bot = bot
         self.react_emoji = "✋"
