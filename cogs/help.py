@@ -6,16 +6,19 @@ from typing import Union
 
 
 async def get_bot_help(bot: SquidGame) -> discord.Embed:
+    embed = discord.Embed(
+        description="Here are all my commands:",
+        color=discord.Color.red()
+    ).set_author(icon_url=bot.user.display_avatar.url, name="Welcome To Squid Game")
     for cog_name, cog in bot.cogs.items():
         if len(cog.get_commands()) > 0 and cog.qualified_name not in ["Jishaku", "Help", "Devs"]:
-            embed = discord.Embed(
-                title=f"{cog_name.title()} Category",
-                description="**Here are all the commands:**\n\n" + "\n".join([f"<:cmd_arrow:895598689463205938> `{command.qualified_name}` • {command.help}" for command in cog.get_commands()]),
-                color=discord.Color.red()
-            ).set_thumbnail(url=bot.user.display_avatar.url)
-
+            embed.add_field(
+                name=cog.qualified_name,
+                value='\n'.join(['`' + command.qualified_name + f'` - {command.help}' for command in cog.get_commands()]),
+                inline=False
+            )
     return embed.add_field(
-        name="Links:",
+        name="‎",
         value=f"[Invite Me](https://discord.com/oauth2/authorize?client_id={bot.user.id}&permissions=8&scope=bot%20applications.commands) | [Support Server](https://discord.gg/4URvnKHNK2) | [GitHub](https://github.com/QuantumGamerLive/SquidGame)",
         inline=False
     ).set_thumbnail(url=bot.user.display_avatar.url)
