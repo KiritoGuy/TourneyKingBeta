@@ -22,7 +22,7 @@ class Game(commands.Cog, name="Game"):
         new_msg = await ctx.channel.fetch_message(sus.id)
         users = await new_msg.reactions[0].users().flatten()
         users.pop(users.index(self.bot.user))
-        for _ in range(10):
+        for _ in range(1):
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", check = lambda r, u: str(r.emoji) == '✋', timeout=120)
                 users.append(user)
