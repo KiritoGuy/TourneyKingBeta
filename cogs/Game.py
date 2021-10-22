@@ -36,8 +36,9 @@ class Game(commands.Cog, name="Game"):
         introduction_embed.set_author(name="Squid Game")
         introduction_embed.add_field(name="Info:", value="1) this is the game of death. The one who lose he/she will die and the won who wins gets all the prize money.", inline=False)
         introduction_embed.add_field(name="-", value="2) if any cheating was seen then the player get instantaneous elimination.", inline=True)
-        introduction_embed.add_field(name="-", value="any player who don't want to play can click on `[🛑]` to exit the game. ", inline=True)
-        introduction_embed.add_field(name="-", value="The winner get **1000 coins** as a prize money", inline=True)
+        introduction_embed.add_field(name="-", value="3) any player who don't want to play can click on `[🛑]` to exit the game. ", inline=True)
+        introduction_embed.add_field(name="-", value="4) The winner get **1000 coins** as a prize money", inline=True)
+        introduction_embed.add_field(name="-", value="5) a player who refuses to play after the game start will get eliminated.", inline=True)
         introduction_embed.set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzJjuDzamSLOP9KVcBSfLf-gQ0dHm8iGdgg&usqp=CAU")
         await chnl.send(embed=introduction_embed)
 
