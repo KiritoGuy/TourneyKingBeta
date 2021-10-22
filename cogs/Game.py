@@ -39,7 +39,7 @@ class Game(commands.Cog, name="Game"):
         introduction_embed.add_field(name="-", value="any player who don't want to play can click on `[<:octagonal_sign:>]` to exit the game. ", inline=True)
         introduction_embed.add_field(name="-", value="The winner get **1000 coins** as a prize money", inline=True)
         introduction_embed.set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzJjuDzamSLOP9KVcBSfLf-gQ0dHm8iGdgg&usqp=CAU")
-        await ctx.chnl.send(embed=introduction_embed)
+        await chnl.send(embed=introduction_embed)
 
 
 
