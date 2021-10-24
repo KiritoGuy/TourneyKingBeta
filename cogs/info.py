@@ -90,7 +90,8 @@ links:
                 value=get_commits(),
                 inline=False
             )
-        except Exception:
+        except Exception as e:
+            print(f"{e}")
             pass
         await ctx.reply(embed=embed)
 
