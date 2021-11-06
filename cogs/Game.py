@@ -22,7 +22,7 @@ class Game(commands.Cog, name="Game"):
         new_msg = await ctx.channel.fetch_message(msg.id)
         users = await new_msg.reactions[0].users().flatten()
         users.pop(users.index(self.bot.user))
-        for _ in range(1):
+        for _ in range(5):
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", check = lambda r, u: str(r.emoji) == '✋', timeout=120)
                 users.append(user)
@@ -36,11 +36,15 @@ class Game(commands.Cog, name="Game"):
         introduction_embed.set_author(name="Squid Game")
         introduction_embed.add_field(name="Info:", value="1) this is the game of death. The one who lose he/she will die and the won who wins gets all the prize money.", inline=False)
         introduction_embed.add_field(name="-", value="2) if any cheating was seen then the player get instantaneous elimination.", inline=True)
-        introduction_embed.add_field(name="-", value="3) any player who don't want to play can click on `[🛑]` to exit the game. ", inline=True)
+        introduction_embed.add_field(name="-", value="3) any player who don't want to play can click on `[🔴]` to exit the game. ", inline=True)
         introduction_embed.add_field(name="-", value="4) The winner get **1000 coins** as a prize money", inline=True)
         introduction_embed.add_field(name="-", value="5) a player who refuses to play after the game start will get eliminated.", inline=True)
         introduction_embed.set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzJjuDzamSLOP9KVcBSfLf-gQ0dHm8iGdgg&usqp=CAU")
-        await chnl.send(embed=introduction_embed)
+        get_yourself_kicked = await chnl.send(embed=introduction_embed)
+        await get_yourself_kicked.add_reaction(🔴)
+        new_get_yourself_kicked = await ctx.channel.fetch_message(get_yourself_kicked.id)
+        users = await new_get_yourself_kicked.reactions[0].users().flatten()
+        users.pop(users.index(self.bot.user))
 
 
 
