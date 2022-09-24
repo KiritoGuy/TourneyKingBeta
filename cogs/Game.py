@@ -41,7 +41,7 @@ class Game(commands.Cog, name="Game"):
         introduction_embed.add_field(name="-", value="5) a player who refuses to play after the game start will get eliminated.", inline=True)
         introduction_embed.set_image(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzJjuDzamSLOP9KVcBSfLf-gQ0dHm8iGdgg&usqp=CAU")
         get_yourself_kicked = await chnl.send(embed=introduction_embed)
-        await get_yourself_kicked.add_reaction(🔴)
+        await get_yourself_kicked.add_reaction("🔴")
         new_get_yourself_kicked = await ctx.channel.fetch_message(get_yourself_kicked.id)
         users = await new_get_yourself_kicked.reactions[0].users().flatten()
         users.pop(users.index(self.bot.user))
